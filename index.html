@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - TanguyVirtual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #0073e6;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00b894;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #f7f9fc;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .hero a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background: #00b894;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #f7f9fc;
+            padding: 2rem;
+        }
+
+        .profile-container {
+            display: inline-block;
+            width: 250px;
+            /* Taille du cercle */
+            height: 250px;
+            /* Taille du cercle */
+            border-radius: 50%;
+            /* Rend l'image ronde */
+            overflow: hidden;
+            /* Masque tout ce qui dépasse du cercle */
+            margin-bottom: 1rem;
+            /* Espacement sous la photo */
+            border: 3px solid #0073e6;
+            /* Bordure autour de l'image */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            /* Ombre pour donner du relief */
+        }
+
+        .profile-photo {
+            width: 100%;
+            /* L'image remplit le conteneur */
+            height: 100%;
+            /* L'image remplit le conteneur */
+            object-fit: cover;
+            /* Ajuste l'image pour remplir le cercle */
+            object-position: center;
+            /* Centre l'image si elle dépasse */
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 1rem;
+            background: #fff;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card a {
+            font-size: 1rem;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .project-card a:hover {
+            color: #00b894;
+        }
+
+        /* CV Section */
+        .cv {
+            padding: 5rem 1rem;
+            background: #f7f7f7;
+        }
+
+        .cv h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .cv iframe {
+            display: block;
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv a {
+            display: inline-block;
+            margin: 2rem auto 0;
+            padding: 0.8rem 2rem;
+            background: #0073e6;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .cv a:hover {
+            background: #00b894;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #2d3436;
+            color: #fff;
+        }
+
+        footer a {
+            color: #00b894;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+
+            .cv iframe {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#cv">CV</a></li>
+        </ul>
+    </nav>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    <section class="hero" id="hero" data-aos="fade-up">
+        <div class="profile-container">
+            <img src="Photo/Profil/IMG_20240711_142807.jpg" alt="Photo de TanguyVirtual" class="profile-photo">
+        </div>
+        <h1>Tanguy Dumouchel</h1>
+        <p>Développeur passionné par la création de sites web modernes et performants.</p>
+        <a href="#projects">Voir mes projets</a>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Mes Projets</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <h3>Booki</h3>
+                <p>Un site interactif avec des animations modernes.</p>
+                <a href="https://tanguyvirtual.github.io/P2_Booki/" target="_blank">Voir le
+                    projet</a>
+            </div>
+            <div class="project-card">
+                <h3>Oh My Food</h3>
+                <p>Gestion d'une base de données.</p>
+                <a href="https://tanguyvirtual.github.io/P3_Oh_my_food_Dumouchel_Tanguy/" target="_blank">Voir le
+                    projet</a>
+            </div>
+            <div class="project-card">
+                <h3>GameOn</h3>
+                <p>Application JS connectée à une API.</p>
+                <a href="https://tanguyvirtual.github.io/P4_GameOn/" target="_blank">Voir le projet</a>
+            </div>
+            <div class="project-card">
+                <h3>Fisheye</h3>
+                <p>Application JS connectée à une API.</p>
+                <a href="https://tanguyvirtual.github.io/P6_Fisheye/" target="_blank">Voir le projet</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cv" id="cv">
+        <h2>Mon CV</h2>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="cv.html" target="_blank" class="btn-view-cv" style="
+                display: inline-block;
+                padding: 0.8rem 2rem;
+                background: #0073e6;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background 0.3s;">
+                Visualiser mon CV
+            </a>
+            <a href="CV/CV Tanguy Dumouchel Amiens.pdf" download>Télécharger mon CV</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 TanguyVirtual. Tous droits réservés. Consultez mes projets sur <a
+                href="https://github.com/TanguyVirtual" target="_blank">GitHub</a>.</p>
+    </footer>
+</body>
+
+</html>

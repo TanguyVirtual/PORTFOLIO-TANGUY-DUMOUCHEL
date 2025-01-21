@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -65,6 +66,12 @@ nav ul li a:hover {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s;
+    min-width: 160px;
+    text-align: center;
+    margin-right: 20px;
+    /* Marge à droite */
+    box-sizing: border-box;
+    /* Important pour inclure les padding dans la largeur */
 }
 
 .btn-cv-top:hover {
@@ -75,47 +82,31 @@ nav ul li a:hover {
 .social-links {
     display: flex;
     gap: 20px;
-    /* Espacement entre chaque lien */
     justify-content: center;
-    /* Centre les liens horizontalement */
     align-items: center;
-    /* Centre verticalement les éléments si le conteneur a une hauteur définie */
 }
 
 .social-links a {
     display: flex;
     align-items: center;
-    /* Centre l'icône et le texte verticalement */
     gap: 8px;
-    /* Espacement entre l'icône et le texte */
     text-decoration: none;
-    /* Retire la décoration par défaut des liens */
     color: inherit;
-    /* Hérite la couleur du parent */
     font-size: 1rem;
-    /* Taille du texte */
     margin-bottom: 10px;
-    /* Espacement entre les liens */
 }
 
 .social-links img {
     width: 24px;
-    /* Assure une taille cohérente */
     height: 24px;
-    /* Assure une hauteur cohérente */
     vertical-align: middle;
-    /* Aligne le SVG au centre verticalement */
     display: inline-block;
-    /* Garantit que le SVG se comporte comme un bloc en ligne */
 }
 
 .social-links span {
     font-size: 1rem;
-    /* Taille du texte */
     vertical-align: middle;
-    /* Ajuste l'alignement vertical */
 }
-
 
 /* Opportunités Section */
 .opportunities {
@@ -303,7 +294,13 @@ footer a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Ecrans jusqu'à 430px (comme iPhone 14 Pro Max) */
+@media (max-width: 430px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -312,11 +309,76 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .project-list {
-        grid-template-columns: 1fr;
+    .profile-container {
+        width: 220px;
+        height: 220px;
     }
 
-    .cv iframe {
-        height: 400px;
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-links img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-card p {
+        font-size: 0.9rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boutons {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    footer {
+        padding: 1rem 0;
+    }
+}
+
+/* Ecrans jusqu'à 375px (iPhone SE, Samsung Galaxy S8+) */
+@media (max-width: 375px) {
+    .profile-container {
+        width: 150px;
+        height: 150px;
+        /* Taille ajustée pour une petite taille d'écran */
+    }
+
+    .btn-cv-top {
+        padding: 0.5rem 1rem;
+        min-width: 140px;
+        margin-right: 15px;
+        text-align: center;
+        box-sizing: border-box;
+        /* Garantir que le padding soit inclus */
+    }
+
+    /* Réduction de la taille du texte pour les petits écrans */
+    .btn-cv-top {
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+        /* Taille ajustée pour iPhone SE */
+    }
+
+    .hero p {
+        font-size: 1rem;
     }
 }

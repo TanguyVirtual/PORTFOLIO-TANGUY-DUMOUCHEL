@@ -9,12 +9,16 @@
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#hero">Accueil</a></li>
             <li><a href="#projects">Projets</a></li>
             <li><a href="#cv">CV</a></li>
         </ul>
+        <div class="header-right">
+            <a href="CV/CV_Tanguy_Dumouchel.pdf" download class="boutons">Voir mon CV</a>
+        </div>
     </nav>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -23,14 +27,40 @@
         AOS.init();
     </script>
 
-
     <section class="hero" id="hero" data-aos="fade-up">
         <div class="profile-container">
             <img src="Photo/Profil/IMG_20240711_142807.jpg" alt="Photo de TanguyVirtual" class="profile-photo">
         </div>
         <h1>Tanguy Dumouchel</h1>
         <p>Développeur passionné par la création de sites web modernes et performants.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tanguy-dumouchel-a22a11145/" target="_blank">
+                <img src="icons/linkedin.svg" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+            <a href="mailto:dumouchel.tanguy@gmail.com" target="_blank">
+                <img src="icons/mail.svg" alt="Email">
+                <span>Mail</span>
+            </a>
+            <a href="https://github.com/TanguyVirtual" target="_blank">
+                <img src="icons/github.svg" alt="GitHub">
+                <span>Github</span>
+            </a>
+        </div>
+
+
+
         <a href="#projects">Voir mes projets</a>
+    </section>
+
+    <section class="opportunities">
+        <h2>Ouvert aux opportunités</h2>
+        <p>Je suis actuellement à la recherche de nouvelles opportunités dans le domaine du développement web.
+            N'hésitez pas à me contacter pour discuter de vos projets !</p>
+        <div class="button-container">
+            <a class="boutons" href="CV_Pages/cv.html" target="_blank">Voir mon CV</a>
+            <a class="boutons" href="CV/CV Tanguy Dumouchel Amiens.pdf" download>Télécharger mon CV</a>
+        </div>
     </section>
 
     <section class="projects" id="projects">
@@ -39,8 +69,7 @@
             <div class="project-card">
                 <h3>Booki</h3>
                 <p>Un site interactif avec des animations modernes.</p>
-                <a href="https://tanguyvirtual.github.io/P2_Booki/" target="_blank">Voir le
-                    projet</a>
+                <a href="https://tanguyvirtual.github.io/P2_Booki/" target="_blank">Voir le projet</a>
             </div>
             <div class="project-card">
                 <h3>Oh My Food</h3>
@@ -60,26 +89,6 @@
             </div>
         </div>
     </section>
-
-    <section class="cv" id="cv">
-        <h2>Mon CV</h2>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="CV_Pages/cv.html" target="_blank" class="btn-view-cv" style="
-                display: inline-block;
-                padding: 0.8rem 2rem;
-                background: #0073e6;
-                color: #fff;
-                font-size: 1rem;
-                font-weight: bold;
-                text-decoration: none;
-                border-radius: 5px;
-                transition: background 0.3s;">
-                Visualiser mon CV
-            </a>
-            <a href="CV/CV Tanguy Dumouchel Amiens.pdf" download>Télécharger mon CV</a>
-        </div>
-    </section>
-
 
     <footer>
         <p>&copy; 2025 TanguyVirtual. Tous droits réservés. Consultez mes projets sur <a

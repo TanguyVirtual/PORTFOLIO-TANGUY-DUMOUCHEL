@@ -77,3 +77,65 @@ iframe {
         padding: 0.6rem 1.2rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Conteneur des icônes sociales */
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Centre les icônes horizontalement */
+    gap: 20px;
+    /* Espace de 20px entre les icônes */
+    margin-top: 2rem;
+    /* Marge au-dessus de la section */
+}
+
+/* Style des icônes sociales */
+.social-button {
+    display: inline-block;
+    padding: 0.8rem;
+    /* Espacement autour de l'icône */
+    background-color: #0073e6;
+    border-radius: 50%;
+    /* Bords arrondis pour donner un effet circulaire */
+    transition: background 0.3s ease, transform 0.3s ease;
+    /* Transition pour l'effet de zoom */
+}
+
+.social-button img {
+    width: 30px;
+    /* Taille de l'icône */
+    height: 30px;
+    transition: transform 0.3s ease;
+    /* Transition pour l'effet de zoom sur l'image */
+}
+
+.social-button:hover {
+    background-color: #005bb5;
+    /* Changer la couleur de fond au survol */
+    transform: scale(1.2);
+    /* Zoom sur le bouton au survol */
+}
+
+.social-button:hover img {
+    transform: scale(1.2);
+    /* Zoom sur l'image au survol */
+}

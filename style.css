@@ -344,6 +344,8 @@ footer a:hover {
     .boutons {
         width: 100%;
         padding: 1rem 0;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     footer {
@@ -354,31 +356,39 @@ footer a:hover {
 /* Ecrans jusqu'à 375px (iPhone SE, Samsung Galaxy S8+) */
 @media (max-width: 375px) {
     .profile-container {
-        width: 150px;
-        height: 150px;
-        /* Taille ajustée pour une petite taille d'écran */
+        width: 115px;
+        height: 115px;
+        /* Ajusté pour les petits écrans comme iPhone SE et Galaxy S8+ */
     }
 
     .btn-cv-top {
-        padding: 0.5rem 1rem;
-        min-width: 140px;
+        padding: 0.6rem 1.2rem;
+        min-width: 150px;
         margin-right: 15px;
         text-align: center;
         box-sizing: border-box;
-        /* Garantir que le padding soit inclus */
     }
 
-    /* Réduction de la taille du texte pour les petits écrans */
     .btn-cv-top {
         font-size: 0.9rem;
     }
 
+    .hero {
+        margin-top: 95px;
+    }
+
     .hero h1 {
         font-size: 2.3rem;
-        /* Taille ajustée pour iPhone SE */
     }
 
     .hero p {
         font-size: 1rem;
+    }
+
+    .boutons {
+        width: 100%;
+        padding: 1rem 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }

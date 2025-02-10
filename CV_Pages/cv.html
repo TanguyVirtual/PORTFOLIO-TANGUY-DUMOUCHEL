@@ -7,19 +7,68 @@
     <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
     <title>CV - Tanguy Dumouchel</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles globaux pour garantir une bonne réactivité */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Conteneur de l'iframe pour le CV */
+        iframe {
+            width: 100%;
+            height: calc(100vh - 120px);
+            /* Prend presque toute la hauteur, mais laisse de la place pour les boutons */
+            border: none;
+        }
+
+        /* Conteneur des boutons sous le PDF */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            /* Centre les boutons horizontalement */
+            gap: 20px;
+            /* Espacement entre les boutons */
+            padding: 20px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Adaptation sur les petits écrans */
+        @media screen and (max-width: 768px) {
+            iframe {
+                height: calc(100vh - 140px);
+                /* Sur mobile, laisse un peu plus de place pour les boutons */
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Utilisation de Google Docs Viewer pour afficher le PDF -->
+    <!-- Affichage du CV avec un iframe -->
     <iframe src="../CV/CV_Tanguy_Dumouchel_Mobile_toute_la_france.pdf#zoom=FitH" title="CV Tanguy Dumouchel"></iframe>
 
-
-
+    <!-- Conteneur des boutons sous le PDF -->
     <div class="buttons">
-        <!-- Lien pour télécharger le CV -->
+        <!-- Bouton pour télécharger le CV -->
         <a href="../CV/CV_Tanguy_Dumouchel_Mobile_toute_la_france.pdf" download class="btn">Télécharger le CV</a>
 
-        <!-- Lien pour revenir au portfolio -->
+        <!-- Bouton pour revenir au portfolio -->
         <a href="../index.html" class="btn">Retour au Portfolio</a>
     </div>
 </body>

@@ -7,6 +7,8 @@
     <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
     <title>CV - Tanguy Dumouchel</title>
     <link rel="stylesheet" href="style.css">
+    <!-- CDN pour PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <style>
         /* Styles globaux pour garantir une bonne réactivité */
         body {
@@ -16,21 +18,23 @@
             box-sizing: border-box;
         }
 
-        /* Conteneur de l'iframe pour le CV */
-        iframe {
+        /* Conteneur du PDF */
+        #pdf-container {
             width: 100%;
             height: calc(100vh - 120px);
             /* Prend presque toute la hauteur, mais laisse de la place pour les boutons */
-            border: none;
+            overflow: auto;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Conteneur des boutons sous le PDF */
+        /* Styles des boutons */
         .buttons {
             display: flex;
             justify-content: center;
-            /* Centre les boutons horizontalement */
             gap: 20px;
-            /* Espacement entre les boutons */
             padding: 20px;
         }
 
@@ -49,20 +53,20 @@
             background-color: #0056b3;
         }
 
-        /* Adaptation sur les petits écrans */
+        /* Adaptation pour les petits écrans */
         @media screen and (max-width: 768px) {
-            iframe {
+            #pdf-container {
                 height: calc(100vh - 140px);
-                /* Sur mobile, laisse un peu plus de place pour les boutons */
+                /* Plus de place pour les boutons sur mobile */
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Utilisation de Google Docs Viewer pour afficher le PDF -->
-    <iframe src="https://docs.google.com/gview?url=../CV/CV_Tanguy_Dumouchel_Mobile_toute_la_france.pdf&embedded=true"
-        title="CV Tanguy Dumouchel"></iframe>
+
+    <!-- Conteneur pour afficher le PDF -->
+    <div id="pdf-container"></div>
 
     <!-- Conteneur des boutons sous le PDF -->
     <div class="buttons">
@@ -72,6 +76,49 @@
         <!-- Bouton pour revenir au portfolio -->
         <a href="../index.html" class="btn">Retour au Portfolio</a>
     </div>
+
+    <script>
+        // URL de ton PDF (en ligne ou depuis ton serveur local)
+        const pdfUrl = "../CV/CV_Tanguy_Dumouchel_Mobile_toute_la_france.pdf";
+
+        // Utiliser PDF.js pour charger et afficher le PDF
+        const container = document.getElementById('pdf-container');
+
+        // Charger le PDF
+        pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+            console.log("Le PDF est chargé.");
+
+            // Calculer l'échelle automatiquement en fonction de la largeur du conteneur
+            const containerWidth = container.offsetWidth;
+            const scale = containerWidth / 2000; // La largeur de la première page du PDF (600 est une estimation)
+
+            // Afficher la première page du PDF
+            pdf.getPage(1).then(function (page) {
+                const viewport = page.getViewport({ scale: scale });
+
+                // Création d'un élément canvas pour afficher le PDF
+                const canvas = document.createElement("canvas");
+                container.appendChild(canvas);
+
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Rendre la page du PDF sur le canvas
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                });
+
+            }).catch(function (error) {
+                console.error('Erreur lors du chargement de la page du PDF :', error);
+            });
+
+        }).catch(function (error) {
+            console.error('Erreur lors du chargement du PDF :', error);
+        });
+    </script>
+
 </body>
 
 </html>
